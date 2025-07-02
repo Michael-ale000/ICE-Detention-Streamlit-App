@@ -9,26 +9,7 @@ from Transformation import transformation
 import snowflake.connector
 from snowflake.connector.pandas_tools import write_pandas
 from dotenv import load_dotenv
-# PASSWORD = os.getenv("SNOWFLAKE_PASSWORD")
-# WAREHOUSE = os.getenv("SNOWFLAKE_WAREHOUSE")
-# USER = os.getenv("SNOWFLAKE_USER")
-# ACCOUNT = os.getenv("SNOWFLAKE_ACCOUNT")
 
-USER = "Michael"
-PASSWORD = "RelevantResearch@1234"
-WAREHOUSE = "COMPUTE_WH"
-ACCOUNT = "vqkklwj-nn52820"
-SCHEMA = "PUBLIC"
-SNOWFLAKE_DATABASE = "DETENTIONDATA"
-conn = snowflake.connector.connect(
-    user = USER,
-    password = PASSWORD,
-    account =  ACCOUNT,
-    warehouse = WAREHOUSE,
-    database = "DETENTIONDATA",
-    schema = "DETENTIONDATA",
-    role = "ACCOUNTADMIN"
-)
 # pd.set_option('display.max_rows', None)
 # pd.set_option('display.max_columns', None)
 # pd.set_option('display.width', None)  # No line wrapping

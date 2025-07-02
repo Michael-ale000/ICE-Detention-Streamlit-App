@@ -69,7 +69,7 @@ api_key = st.text_input(
 )
 username = st.text_input("Snowflake Username")
 password = st.text_input("Snowflake Password", type="password")
-schema = st.text_input("Snowflake Schema", value="DETENTIONS")
+schema = st.text_input("Snowflake Schema", value="DETENTIONDATA")
 # 3.  File uploader
 uploaded_file = st.file_uploader("📂 Upload Excel file", type=["xlsx"])
 
@@ -153,7 +153,7 @@ def fig_to_bytes(fig):
     return buf
 
 
-if st.button("Display important tables"):
+if st.button("Display important tables[1,4,5,6 & 8]"):
     
     if username and password and schema:
         USER = username
