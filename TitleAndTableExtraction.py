@@ -73,6 +73,7 @@ def process_footnotes(filepath):
     df['Term'] = df['Term'].ffill()
     df_clean = df.groupby('Term', as_index=False).agg({'Definition': ' '.join})
     df_clean['EID_Date'] = df_clean['Definition'].str.extract(r'EID as of (\d{2}/\d{2}/\d{4})')
+    df_clean['EID_Date'] = pd.to_datetime(df_clean['EID_Date'], errors='coerce').dt.date.astype(str)
     return df_clean[df_clean['EID_Date'].notnull()]
 
 def Extraction_title_and_data(filepath, source_filename=None,api_key=None, save_excel=True,):
