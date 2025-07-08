@@ -155,7 +155,7 @@ def Detainees_count_over_time(df):
 
 def Detained_population_by_criminal_history_ice_only(df):
     ice_data = df.copy()
-    ice_data["EID"] = pd.to_datetime(ice_data["EID"], format="%m/%d/%Y")
+    ice_data["EID"] = pd.to_datetime(ice_data["EID"])
     ice_data = ice_data[ice_data["EID"] > pd.Timestamp("2025-01-01")]
     ice_data_only = ice_data[(ice_data["Arresting Agency"]=="ICE") & (ice_data["Criminality"]!="Total")]
     ice_after_pivot = ice_data_only.pivot_table(
@@ -233,7 +233,7 @@ def Detained_population_by_criminal_history_ice_only(df):
     return fig
 
 def ice_vs_cbp(df):
-    df["EID"] = pd.to_datetime(df["EID"], format="%m/%d/%Y")
+    df["EID"] = pd.to_datetime(df["EID"])
     max_date = df["EID"].max().date()
     df = df[(df['Criminality'] == 'Total') & (df['Arresting Agency'].isin(['ICE', 'CBP'])) & (df['EID'] > pd.Timestamp("2025-01-01"))]
     df_after_pivot = df.pivot_table(
@@ -302,7 +302,7 @@ def ice_vs_cbp(df):
 
 def generate_detained_population_table(df_main_4):
     ice_data = df_main_4.copy()
-    ice_data["EID"] = pd.to_datetime(ice_data["EID"], format="%m/%d/%Y")
+    ice_data["EID"] = pd.to_datetime(ice_data["EID"])
     max = ice_data["EID"].max().date()
     ice_data = ice_data[ice_data["EID"] > pd.Timestamp("2025-01-01")]
     ice_data_only = ice_data[(ice_data["Arresting Agency"] == "ICE") & (ice_data["Criminality"] != "Total")]
